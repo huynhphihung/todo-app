@@ -11,7 +11,7 @@ export const useAddTodo = create((set) => ({
   addTodo: async (payload) => {
     try {
       
-      const res = await fetch(`${serverUrl}/api/todo/add-todo`, {
+      const res = await fetch(`/api/todo/add-todo`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         credentials: "include",
@@ -32,7 +32,7 @@ export const useAddTodo = create((set) => ({
     set(state => ({
       todoList: state.todoList.filter(todo => todo.id !== id)
     }))
-    const res = await fetch(`${serverUrl}/api/todo/remove-todo`, {
+    const res = await fetch(`/api/todo/remove-todo`, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       credentials: "include",
@@ -45,7 +45,7 @@ export const useAddTodo = create((set) => ({
     }))
   },
   updateTodoName: async (id, payload) => {
-    const res = await fetch(`${serverUrl}/api/todo/update-todo-name`, {
+    const res = await fetch(`/api/todo/update-todo-name`, {
       method: "POST",
       credentials: "include",
       headers: {"Content-Type": "application/json"},
@@ -60,7 +60,7 @@ export const useAddTodo = create((set) => ({
   },
   getTodoList: async () => {
     try {
-      const res = await fetch(`${serverUrl}/api/todo/get-all-todos`, {
+      const res = await fetch(`/api/todo/get-all-todos`, {
         credentials: "include"
       })
 
@@ -73,7 +73,7 @@ export const useAddTodo = create((set) => ({
   removeTodoList: async () => {
     set({ todoList: [] })
     try {
-     const res = await fetch(`${serverUrl}/api/todo/remove-todo-list`, {
+     const res = await fetch(`/api/todo/remove-todo-list`, {
         method: "POST",
         credentials: "include",
         
@@ -86,7 +86,7 @@ export const useAddTodo = create((set) => ({
     set({ todoList: newItem })
   },
   handleIsCompleted: async (id, isCompleted) => {
-    const res = await fetch(`${serverUrl}/api/todo/update-todo-status`, {
+    const res = await fetch(`/api/todo/update-todo-status`, {
       method: "POST",
       credentials: "include",
       headers: {"Content-Type": "application/json"},

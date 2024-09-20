@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { serverUrl } from "../variables";
 
 
 export const useCheckAuth = create(set => ({
@@ -10,7 +9,7 @@ export const useCheckAuth = create(set => ({
   checkAuth: async () => {
     try {
       set({ isLoading: true})
-      const res = await fetch(`${serverUrl}/api/auth/check-auth`, {
+      const res = await fetch("/api/auth/check-auth", {
         credentials: "include"
       })
 
